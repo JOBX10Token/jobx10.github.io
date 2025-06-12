@@ -50,7 +50,7 @@
   <div class="container">
     <header>
       <div class="logo">
-        <img src="https://raw.githubusercontent.com/Simonetta10/assets/main/blockchains/polygon/assets/0x3EEf16cb777548DaDC4E78240A50dFA72af35Fe1/logo.png" alt="JobX10 Logo" />
+        <img src="https://raw.githubusercontent.com/JOBX10Token/assets/main/blockchains/polygon/assets/0x3EEf16cb777548DaDC4E78240A50dFA72af35Fe1/logo.png" alt="JobX10 Logo" />
       </div>
       <h1>JobX10 Token (JX10)</h1>
       <p>Empowering borderless employment with blockchain and AI.</p>
