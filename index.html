@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <title>JobX10 Token (JX10) – Coaching & Blockchain</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="JobX10 (JX10) – Ein Token auf Polygon, der Coaching, Mindset und Blockchain verbindet." />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0b1020;
+      --accent: #8b5cf6;
+      --accent-soft: rgba(139, 92, 246, 0.15);
+      --text: #f9fafb;
+      --text-muted: #9ca3af;
+      --border: #1f2933;
+      --danger: #f97373;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #111827 0, #020617 50%, #000 100%);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(16px);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(5, 8, 22, 0.92);
+    }
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.03em;
+      font-size: 0.95rem;
+    }
+    .logo-icon {
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: radial-gradient(circle at 30% 30%, #f9fafb, #8b5cf6 45%, #111827 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      padding: 0.35rem 0.75rem;
+      border-radius: 999px;
+    }
+    .nav-links a:hover {
+      background: rgba(148, 163, 184, 0.1);
+      color: var(--text);
+    }
+
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.25rem 3rem;
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2.5fr);
+      gap: 2.5rem;
+      align-items: center;
+      margin-bottom: 3rem;
+    }
+    .hero-title {
+      font-size: clamp(2.1rem, 3.2vw, 3rem);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+    .hero-sub {
+      color: var(--text-muted);
+      max-width: 32rem;
+      margin-bottom: 1.4rem;
+      font-size: 0.99rem;
+    }
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.4rem;
+    }
+    .pill {
+      font-size: 0.8rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--accent-soft);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text-muted);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+    .pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 0.6rem 1.1rem;
+      border-radius: 999px;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: none;
+      color: inherit;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, #8b5cf6, #22d3ee);
+      color: #020617;
+      font-weight: 600;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.7);
+    }
+    .btn-primary:hover {
+      filter: brightness(1.05);
+    }
+    .btn-ghost {
+      border-color: var(--border);
+      color: var(--text-muted);
+      background: rgba(15, 23, 42, 0.8);
+    }
+    .btn-ghost:hover {
+      border-color: var(--accent-soft);
+      color: var(--text);
+    }
+
+    .hero-card {
+      border-radius: 1.25rem;
+      border: 1px solid var(--accent-soft);
+      background: radial-gradient(circle at top left, #1e293b 0, #020617 55%);
+      padding: 1.5rem 1.4rem;
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+      font-size: 0.9rem;
+    }
+    .hero-card h3 {
+      font-size: 0.95rem;
+      margin-bottom: 0.65rem;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 0.9rem;
+    }
+    .stat {
+      padding: 0.55rem 0.7rem;
+      border-radius: 0.9rem;
+      background: rgba(15, 23, 42, 0.85);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+    }
+    .stat-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      color: var(--text-muted);
+      margin-bottom: 0.15rem;
+    }
+    .stat-value {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+    .addr {
+      font-family: "SF Mono", Menlo, ui-monospace, SFMono-Regular, Menlo,
+        Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size: 0.75rem;
+      word-break: break-all;
+      color: var(--text-muted);
+    }
+
+    section {
+      margin-bottom: 3rem;
+    }
+    section h2 {
+      font-size: 1.2rem;
+      margin-bottom: 0.7rem;
+    }
+    section p {
+      font-size: 0.94rem;
+      color: var(--text-muted);
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .box {
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 1.1rem 1rem;
+      font-size: 0.9rem;
+    }
+    .box h3 {
+      font-size: 1rem;
+      margin-bottom: 0.4rem;
+    }
+    ul {
+      list-style: none;
+      margin-top: 0.4rem;
+    }
+    ul li {
+      margin-bottom: 0.25rem;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    ul li::before {
+      content: "• ";
+      color: var(--accent);
+    }
+
+    .tokenomics {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+    .tokenomics-card {
+      border-radius: 1rem;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+      padding: 0.9rem 0.85rem;
+      font-size: 0.85rem;
+    }
+    .tokenomics-card strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .how-steps {
+      margin-top: 0.6rem;
+      font-size: 0.9rem;
+    }
+    .how-steps ol {
+      padding-left: 1.1rem;
+    }
+    .how-steps li {
+      margin-bottom: 0.45rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 1.2rem 1.25rem 2rem;
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    .social {
+      margin-top: 0.4rem;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-card {
+        order: -1;
+      }
+      .grid-2 {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .tokenomics {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      header {
+        position: static;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="nav">
+      <div class="logo">
+        <div class="logo-icon">J</div>
+        <span>JobX10&nbsp;Token</span>
+      </div>
+      <div class="nav-links">
+        <a href="#about">Über JX10</a>
+        <a href="#tokenomics">Tokenomics</a>
+        <a href="#how">JX10 kaufen</a>
+        <a href="#links">Links</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero">
+      <div>
+        <div class="pill-row">
+          <span class="pill"><span class="pill-dot"></span>Polygon · ERC-20</span>
+          <span class="pill">Ticker: <strong>JX10</strong></span>
+          <span class="pill">Coaching · Mindset · Blockchain</span>
+        </div>
+        <h1 class="hero-title">
+          JobX10 (JX10) – Token für Coaching, Mindset & Wachstum.
+        </h1>
+        <p class="hero-sub">
+          JX10 verbindet modernes Blockchain-Ökosystem mit klassischem Coaching:
+          Mindset, Motivation und berufliche Entwicklung. Der Token lebt auf
+          Polygon und wird über dezentrale Börsen wie Uniswap, QuickSwap und
+          SushiSwap gehandelt.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#how">
+            🚀 JX10 kaufen
+          </a>
+          <a class="btn btn-ghost" href="#tokenomics">
+            📊 Tokenomics ansehen
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-card">
+        <h3>Token-Fakten</h3>
+        <p class="addr">
+          Contract (Polygon):<br />
+          0x3EEf16cb777548DaDC4E78240A50dFA72af35Fe1
+        </p>
+        <div class="card-grid">
+          <div class="stat">
+            <div class="stat-label">Symbol</div>
+            <div class="stat-value">JX10</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Netzwerk</div>
+            <div class="stat-value">Polygon (POL)</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Max. Supply</div>
+            <div class="stat-value">1 000 000 000</div>
+          </div>
+          <div class="stat">
+            <div class="stat-label">Dezentrale Börsen</div>
+            <div class="stat-value">Uniswap · QuickSwap · Sushi</div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2>Was ist JobX10?</h2>
+      <p>
+        JobX10 (JX10) ist ein Community-Token auf Polygon. Idee dahinter:
+        klassisches Coaching, Job-Begleitung und Mindset-Arbeit mit
+        moderner Web3-Technologie zu verbinden. Halter von JX10 sollen langfristig
+        Zugang zu Inhalten, Workshops und Formaten rund um Karriere, Motivation
+        und persönliches Wachstum erhalten.
+      </p>
+      <p style="margin-top:0.5rem;">
+        Das Projekt wird von Deni Simonetta aufgebaut – über 25 Jahre Erfahrung
+        im HR-Bereich, Job-Coaching und Personalberatung.
+      </p>
+    </section>
+
+    <!-- Tokenomics & Utility -->
+    <section id="tokenomics">
+      <div class="grid-2">
+        <div>
+          <h2>Tokenomics</h2>
+          <p>
+            Die Verteilung ist bewusst einfach gehalten. Keine versteckten
+            Mint-Funktionen, keine versteckten Steuern, kein Honeypot – der
+            Smart Contract wurde mit Fokus auf Transparenz erstellt.
+          </p>
+          <div class="tokenomics">
+            <div class="tokenomics-card">
+              <strong>Gesamtmenge</strong>
+              1 000 000 000 JX10<br />
+              Fester Supply – nicht nachmintbar.
+            </div>
+            <div class="tokenomics-card">
+              <strong>Liquidity &amp; Markt</strong>
+              Ein signifikanter Teil der Token ist in Liquidity-Pools auf
+              Uniswap/QuickSwap/Sushi hinterlegt, um Handel zu ermöglichen.
+            </div>
+            <div class="tokenomics-card">
+              <strong>Community &amp; Coaching</strong>
+              Ein weiterer Anteil ist für Community-Incentives,
+              Coaching-Formate, Events und langfristigen Aufbau reserviert.
+            </div>
+          </div>
+        </div>
+
+        <div class="box">
+          <h3>Warum JX10?</h3>
+          <ul>
+            <li>Brücke zwischen Coaching/HR-Welt und Web3-Technologie.</li>
+            <li>Transparenter, einfacher ERC-20-Contract (keine versteckten Tricks).</li>
+            <li>Handelbar über etablierte DEX (Uniswap, QuickSwap, SushiSwap).</li>
+            <li>Langfristige Ausrichtung: Bildung, Mindset, Employability.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- How to buy -->
+    <section id="how">
+      <h2>Wie kann ich JX10 kaufen?</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3>1. Wallet & Netzwerk</h3>
+          <div class="how-steps">
+            <ol>
+              <li>MetaMask oder Rabby Wallet installieren.</li>
+              <li>Netzwerk auf <strong>Polygon</strong> stellen.</li>
+              <li>POL/MATIC oder USDT auf Polygon einzahlen (z.&nbsp;B. über eine zentrale Börse).</li>
+            </ol>
+          </div>
+        </div>
+        <div class="box">
+          <h3>2. DEX öffnen & JX10 handeln</h3>
+          <div class="how-steps">
+            <ol>
+              <li>Uniswap, QuickSwap oder SushiSwap aufrufen.</li>
+              <li>Als Handelspaar z.&nbsp;B. <strong>JX10 / POL</strong> wählen.</li>
+              <li>Token-Adresse einfügen:<br />
+                  <code>0x3EEf16cb777548DaDC4E78240A50dFA72af35Fe1</code>
+              </li>
+              <li>Gewünschte Menge JX10 kaufen und Swap bestätigen.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top:0.7rem;font-size:0.85rem;color:var(--text-muted);">
+        Hinweis: Nimm bei kleinen Pools lieber kleinere Ordergrößen, damit der
+        Preis nicht zu stark springt. Immer Contract-Adresse prüfen, bevor du
+        einen Kauf bestätigst.
+      </p>
+    </section>
+
+    <!-- Links -->
+    <section id="links">
+      <h2>Offizielle Links</h2>
+      <div class="grid-2">
+        <div class="box">
+          <h3>Explorer &amp; Handel</h3>
+          <ul>
+            <li>Polygonscan: <a href="https://polygonscan.com/token/0x3EEf16cb777548DaDC4E78240A50dFA72af35Fe1" target="_blank">Token-Seite ansehen</a></li>
+            <li>Uniswap&nbsp;Pool (JX10/POL): <em>Link einfügen</em></li>
+            <li>QuickSwap&nbsp;Pool: <em>Link einfügen</em></li>
+            <li>SushiSwap&nbsp;Pool: <em>Link einfügen</em></li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Community &amp; Kontakt</h3>
+          <ul>
+            <li>Twitter / X: <em>dein Handle einfügen</em></li>
+            <li>Telegram: <em>Channel-Link einfügen</em></li>
+            <li>Discord: <em>Server-Invite einfügen</em></li>
+            <li>LinkedIn: <em>Profil oder Firmenseite</em></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div>JobX10 Token (JX10) · Polygon · © <span id="year"></span> Deni Simonetta</div>
+    <div class="social">
+      <span>Dies ist keine Finanzberatung. Kryptowährungen sind volatil – immer eigene Recherche machen.</span>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
