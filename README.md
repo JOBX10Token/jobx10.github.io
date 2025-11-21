@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="UTF-8">
-  <title>JX10 Logo</title>
-</head>
-<body>
-  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="100" cy="100" r="90" stroke="#8000FF" stroke-width="10" fill="white" />
-    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="48" font-family="Arial, sans-serif" fill="black">JX10</text>
-  </svg>
-</body>
-</html>![Logo (3)](https://github.com/user-attachments/assets/b4a06b00-cf43-4ed7-8a74-67d64c9f2d95)
-<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -56,6 +43,10 @@
     .token-info {
       margin-top: 2rem;
     }
+    .svg-logo {
+      margin-top: 2rem;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
@@ -86,8 +77,14 @@
       <h2>Contact</h2>
       <p>Email: <a href="mailto:info@jobx10.io">info@jobx10.io</a></p>
     </section>
+
+    <section class="svg-logo">
+      <h2>SVG Logo</h2>
+      <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="90" stroke="#8000FF" stroke-width="10" fill="white" />
+        <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="48" font-family="Arial, sans-serif" fill="black">JX10</text>
+      </svg>
+    </section>
   </div>
 </body>
 </html>
-# jobx10.github.io
-Offizielle Seite des JobX10 Tokens auf Polygon
