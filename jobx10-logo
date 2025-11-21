@@ -1,4 +1,13 @@
-<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="100" cy="100" r="90" stroke="#8000FF" stroke-width="10" fill="white" />
-  <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="48" font-family="Arial, sans-serif" fill="black">JX10</text>
-</svg>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>JX10 Logo</title>
+</head>
+<body>
+  <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="100" cy="100" r="90" stroke="#8000FF" stroke-width="10" fill="white" />
+    <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle" font-size="48" font-family="Arial, sans-serif" fill="black">JX10</text>
+  </svg>
+</body>
+</html>
